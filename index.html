@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home · NeuroScan Demo</title>
+<meta name="description" content="NeuroScan — a concept AI-assisted MRI screening review interface. Demo project, not a real diagnostic tool.">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+
+</head>
+<body>
+
+  <div class="demo-banner">
+    <strong>DEMO / PROTOTYPE</strong> — NeuroScan is a fictional UI concept for a portfolio project. It runs no real imaging model and produces no real medical diagnoses.
+  </div>
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <img src="icons/logo-mark.svg" alt="" width="26" height="26">
+        <span>NeuroScan<small>NEURO-ONCOLOGY IMAGING · DEMO</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+<li><a href="patient.html" class="">Patient Info</a></li>
+<li><a href="upload.html" class="">Upload MRI</a></li>
+<li><a href="analysis.html" class="">AI Analysis</a></li>
+<li><a href="result.html" class="">Result</a></li>
+<li><a href="history.html" class="">History</a></li>
+<li><a href="about.html" class="">About AI</a></li>
+<li><a href="contact.html" class="">Contact</a></li>
+
+        <li><a href="patient.html" class="nav-cta">Start Screening</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+
+
+
+  <header class="hero">
+    <div class="container">
+      <div>
+        <div class="eyebrow">AI-assisted neuro-imaging review · concept build</div>
+        <h1>A first look at what <em>MRI screening review</em> could feel like.</h1>
+        <p class="lede">NeuroScan is a front-end concept for a five-step scan review workflow — patient intake, upload, simulated analysis, results and a printable report. Every output on this site is generated in your browser for demonstration purposes.</p>
+        <div class="hero-actions">
+          <a href="patient.html" class="btn btn-primary">Start a screening pass →</a>
+          <a href="about.html" class="btn btn-ghost">How the demo works</a>
+        </div>
+      </div>
+      
+        <div class="scan-panel">
+          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="g1" cx="50%" cy="46%" r="55%">
+                <stop offset="0%" stop-color="#17C3B2" stop-opacity="0.16"/>
+                <stop offset="100%" stop-color="#17C3B2" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="400" height="400" fill="url(#g1)"/>
+            <g fill="none" stroke="#1B2E48" stroke-width="1">
+              <circle cx="200" cy="190" r="150"/>
+              <circle cx="200" cy="190" r="110"/>
+              <circle cx="200" cy="190" r="70"/>
+            </g>
+            <g class="spin" style="transform-origin:200px 190px;">
+              <circle cx="200" cy="190" r="150" fill="none" stroke="#17C3B2" stroke-width="1.2" stroke-dasharray="2 10" opacity="0.6"/>
+            </g>
+            <g class="spin-rev" style="transform-origin:200px 190px;">
+              <circle cx="200" cy="190" r="110" fill="none" stroke="#F2A93B" stroke-width="1" stroke-dasharray="1 8" opacity="0.5"/>
+            </g>
+            <path d="M200 90 C150 90 130 140 140 190 C130 240 150 290 200 290 C250 290 270 240 260 190 C270 140 250 90 200 90 Z"
+                  fill="none" stroke="#8A97AC" stroke-width="1.3" opacity="0.8"/>
+            <path d="M200 100 C165 105 150 145 158 190 C150 235 165 275 200 280"
+                  fill="none" stroke="#17C3B2" stroke-width="1.3"/>
+            <circle cx="176" cy="176" r="4.5" fill="#F2A93B"/>
+            <circle cx="176" cy="176" r="10" fill="none" stroke="#F2A93B" stroke-width="1" opacity="0.6"/>
+          </svg>
+          <div class="scan-sweep"></div>
+          <div class="scan-readout tl mono">SLICE 34 / 64</div>
+          <div class="scan-readout br mono">SIM · NO MODEL ATTACHED</div>
+        </div>
+
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">The workflow</div>
+        <h2>Five steps, start to report.</h2>
+        <p>Each step hands data to the next — patient details travel with the scan, the scan travels into the analysis stage, and the analysis output becomes both the result view and the printable report.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="num">01 — INTAKE</div>
+          <h3>Patient information</h3>
+          <p>Capture the demo patient's identifiers and scan context before a file is attached, the way an intake form would.</p>
+        </div>
+        <div class="card">
+          <div class="num">02 — UPLOAD</div>
+          <h3>Attach the MRI</h3>
+          <p>Drop in an image exported from a scan series. The interface reads its metadata and shows a preview before continuing.</p>
+        </div>
+        <div class="card">
+          <div class="num">03 — ANALYSIS</div>
+          <h3>Simulated processing</h3>
+          <p>A staged progress sequence stands in for segmentation and feature-scoring steps a real pipeline might run.</p>
+        </div>
+        <div class="card">
+          <div class="num">04 — RESULT</div>
+          <h3>Pattern summary</h3>
+          <p>A mock scorecard renders region, pattern score and confidence — clearly labelled as illustrative, not diagnostic.</p>
+        </div>
+        <div class="card">
+          <div class="num">05 — REPORT</div>
+          <h3>Printable report</h3>
+          <p>The same figures are laid out as a clinical-style report sheet, ready to print or save as a reference document.</p>
+        </div>
+        <div class="card" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div class="num">ALWAYS ON</div>
+            <h3>History log</h3>
+            <p>Every completed pass is logged locally so the workflow can be revisited without losing earlier runs.</p>
+          </div>
+          <a href="history.html" class="btn btn-outline btn-sm" style="margin-top:16px; align-self:flex-start;">View history →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="on-dark">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Why this exists</div>
+        <h2>Built to demonstrate an interface, not a diagnosis.</h2>
+        <p>NeuroScan does not run any imaging model. It's a portfolio piece exploring how a clinical review tool might be structured, worded and paced — every figure it shows is generated locally in the browser.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card card-dark">
+          <div class="icon-badge"><img src="icons/icon-shield.svg" alt=""></div>
+          <h3>No real model</h3>
+          <p>Result figures are derived from a simple hash of the uploaded file, not from any trained imaging network.</p>
+        </div>
+        <div class="card card-dark">
+          <div class="icon-badge"><img src="icons/icon-layers.svg" alt=""></div>
+          <h3>Nothing leaves your browser</h3>
+          <p>Patient details and scans are stored only in this browser's local storage — nothing is uploaded to a server.</p>
+        </div>
+        <div class="card card-dark">
+          <div class="icon-badge"><img src="icons/icon-alert.svg" alt=""></div>
+          <h3>Clearly labelled</h3>
+          <p>Every results screen carries a disclosure that the output is simulated and not a basis for medical decisions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="on-paper2">
+    <div class="container text-center">
+      <h2 style="margin-bottom:14px;">Walk through the workflow yourself.</h2>
+      <p style="max-width:52ch; margin:0 auto 26px;">Start at patient intake and move through upload, simulated analysis, and the generated report.</p>
+      <a href="patient.html" class="btn btn-dark">Start a screening pass →</a>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>NeuroScan</h5>
+          <p class="small" style="max-width:34ch;">A concept interface for AI-assisted MRI review, built as a design &amp; front-end demonstration. Not a medical device.</p>
+        </div>
+        <div>
+          <h5>Workflow</h5>
+          <ul>
+            <li><a href="patient.html">Patient Info</a></li>
+            <li><a href="upload.html">Upload MRI</a></li>
+            <li><a href="analysis.html">AI Analysis</a></li>
+            <li><a href="history.html">Previous Reports</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Project</h5>
+          <ul>
+            <li><a href="about.html">About the model</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Disclosure</h5>
+          <ul>
+            <li>No real patient data is collected</li>
+            <li>No clinical model runs in this demo</li>
+            <li>All data stays in your browser</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> NeuroScan Demo Project. For educational &amp; portfolio use only.</span>
+        <span class="mono">NOT FOR CLINICAL USE</span>
+      </div>
+    </div>
+  </footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

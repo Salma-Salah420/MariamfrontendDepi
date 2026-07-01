@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Report · NeuroScan Demo</title>
+<meta name="description" content="Printable simulated report for the NeuroScan demo workflow.">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+<script src="js/report.js"></script>
+<style media="print">
+  .demo-banner, .site-nav, .stepper, footer, .flex.gap-8{ display:none !important; }
+  body{ background:#fff; }
+  .report-sheet{ border:none; box-shadow:none; padding:0; }
+  section{ padding:0; }
+</style>
+</head>
+<body>
+
+  <div class="demo-banner">
+    <strong>DEMO / PROTOTYPE</strong> — NeuroScan is a fictional UI concept for a portfolio project. It runs no real imaging model and produces no real medical diagnoses.
+  </div>
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <img src="icons/logo-mark.svg" alt="" width="26" height="26">
+        <span>NeuroScan<small>NEURO-ONCOLOGY IMAGING · DEMO</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="">Home</a></li>
+<li><a href="patient.html" class="">Patient Info</a></li>
+<li><a href="upload.html" class="">Upload MRI</a></li>
+<li><a href="analysis.html" class="">AI Analysis</a></li>
+<li><a href="result.html" class="">Result</a></li>
+<li><a href="history.html" class="">History</a></li>
+<li><a href="about.html" class="">About AI</a></li>
+<li><a href="contact.html" class="">Contact</a></li>
+
+        <li><a href="patient.html" class="nav-cta">Start Screening</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+
+
+  <div class="stepper">
+    <ol><li class="done"><span class="n">1</span><a href="patient.html" style="color:inherit">Patient Info</a><span class="sep">›</span></li>
+<li class="done"><span class="n">2</span><a href="upload.html" style="color:inherit">Upload MRI</a><span class="sep">›</span></li>
+<li class="done"><span class="n">3</span><a href="analysis.html" style="color:inherit">AI Analysis</a><span class="sep">›</span></li>
+<li class="done"><span class="n">4</span><a href="result.html" style="color:inherit">Result</a><span class="sep">›</span></li>
+<li class="current"><span class="n">5</span><a href="report.html" style="color:inherit">Report</a></li>
+</ol>
+  </div>
+
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Step 5 of 5</div>
+        <h2>Report</h2>
+        <p>A print-ready layout of the demo case. Use <strong>Print / Save as PDF</strong> to export it, or start a new case to reset the session.</p>
+      </div>
+
+      <div class="report-sheet" id="reportSheet">
+        <div class="report-head">
+          <div>
+            <div class="brand" style="color:var(--ink);">
+              <img src="icons/logo-mark.svg" alt="" width="24" height="24">
+              <span style="font-family:var(--f-display); font-weight:700; font-size:18px;">NeuroScan</span>
+            </div>
+            <p class="small" style="margin-top:6px;">Simulated Imaging Review Report — Demo Output</p>
+          </div>
+          <div class="report-id">
+            <div>REPORT <strong id="rIdTop"></strong></div>
+            <div id="rDateTop"></div>
+          </div>
+        </div>
+
+        <div class="report-section">
+          <h4>Patient</h4>
+          <div class="kv-grid">
+            <div><span>Name</span><strong id="rName"></strong></div>
+            <div><span>Patient ID</span><strong id="rPid"></strong></div>
+            <div><span>Age</span><strong id="rAge"></strong></div>
+            <div><span>Sex</span><strong id="rSex"></strong></div>
+            <div><span>Scan type</span><strong id="rScanType"></strong></div>
+            <div><span>Referring physician</span><strong id="rReferrer"></strong></div>
+          </div>
+        </div>
+
+        <div class="report-section">
+          <h4>Series</h4>
+          <div class="kv-grid">
+            <div><span>File</span><strong id="rFileName"></strong></div>
+            <div><span>Slices reviewed</span><strong id="rSlices"></strong></div>
+          </div>
+        </div>
+
+        <div class="report-section">
+          <h4>Findings summary</h4>
+          <div class="kv-grid" style="margin-bottom:14px;">
+            <div><span>Region of interest</span><strong id="rRegion"></strong></div>
+            <div><span>Pattern score</span><strong id="rScore"></strong></div>
+            <div><span>Model confidence</span><strong id="rConfidence"></strong></div>
+            <div><span>Summary</span><strong id="rVerdict"></strong></div>
+          </div>
+          <ul id="rFindings" style="margin:0; padding-left:18px; font-size:14px; color:var(--slate); line-height:1.9;"></ul>
+        </div>
+
+        <div class="disclaimer-box">
+          <strong>Not a clinical document.</strong> This report is generated by a front-end demonstration project (model reference: <span id="rModel" class="mono"></span>) and contains no real diagnostic assessment. It must not be used for, or mistaken for, medical decision-making. Consult a licensed physician for any real health concern.
+        </div>
+
+        <div class="report-sig">
+          Generated locally in your browser · NeuroScan Demo Project · Not reviewed by a clinician
+        </div>
+      </div>
+
+      <div class="flex gap-8" style="justify-content:center; margin-top:34px;">
+        <button class="btn btn-outline" id="printBtn">Print / Save as PDF</button>
+        <button class="btn btn-primary" id="newCaseBtn">Start a new case</button>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>NeuroScan</h5>
+          <p class="small" style="max-width:34ch;">A concept interface for AI-assisted MRI review, built as a design &amp; front-end demonstration. Not a medical device.</p>
+        </div>
+        <div>
+          <h5>Workflow</h5>
+          <ul>
+            <li><a href="patient.html">Patient Info</a></li>
+            <li><a href="upload.html">Upload MRI</a></li>
+            <li><a href="analysis.html">AI Analysis</a></li>
+            <li><a href="history.html">Previous Reports</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Project</h5>
+          <ul>
+            <li><a href="about.html">About the model</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Disclosure</h5>
+          <ul>
+            <li>No real patient data is collected</li>
+            <li>No clinical model runs in this demo</li>
+            <li>All data stays in your browser</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> NeuroScan Demo Project. For educational &amp; portfolio use only.</span>
+        <span class="mono">NOT FOR CLINICAL USE</span>
+      </div>
+    </div>
+  </footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

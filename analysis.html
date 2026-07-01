@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Analysis · NeuroScan Demo</title>
+<meta name="description" content="Simulated AI analysis sequence for the NeuroScan demo workflow.">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+<script src="js/analysis.js"></script>
+</head>
+<body>
+
+  <div class="demo-banner">
+    <strong>DEMO / PROTOTYPE</strong> — NeuroScan is a fictional UI concept for a portfolio project. It runs no real imaging model and produces no real medical diagnoses.
+  </div>
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <img src="icons/logo-mark.svg" alt="" width="26" height="26">
+        <span>NeuroScan<small>NEURO-ONCOLOGY IMAGING · DEMO</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="">Home</a></li>
+<li><a href="patient.html" class="">Patient Info</a></li>
+<li><a href="upload.html" class="">Upload MRI</a></li>
+<li><a href="analysis.html" class="active">AI Analysis</a></li>
+<li><a href="result.html" class="">Result</a></li>
+<li><a href="history.html" class="">History</a></li>
+<li><a href="about.html" class="">About AI</a></li>
+<li><a href="contact.html" class="">Contact</a></li>
+
+        <li><a href="patient.html" class="nav-cta">Start Screening</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+
+
+  <div class="stepper">
+    <ol><li class="done"><span class="n">1</span><a href="patient.html" style="color:inherit">Patient Info</a><span class="sep">›</span></li>
+<li class="done"><span class="n">2</span><a href="upload.html" style="color:inherit">Upload MRI</a><span class="sep">›</span></li>
+<li class="current"><span class="n">3</span><a href="analysis.html" style="color:inherit">AI Analysis</a><span class="sep">›</span></li>
+<li class=""><span class="n">4</span><a href="result.html" style="color:inherit">Result</a><span class="sep">›</span></li>
+<li class=""><span class="n">5</span><a href="report.html" style="color:inherit">Report</a></li>
+</ol>
+  </div>
+
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Step 3 of 5</div>
+        <h2>Running the simulated analysis</h2>
+        <p>This sequence plays out on a timer to illustrate what a processing pipeline's status feed might look like — no image analysis actually happens here.</p>
+      </div>
+
+      <div class="analysis-stage" style="max-width:640px; margin:0 auto;">
+        <div class="analysis-visual scan-grid-bg">
+          <img id="scanThumb" src="" alt="Scan being processed"
+               style="width:100%; height:100%; object-fit:cover; opacity:.55; mix-blend-mode:luminosity;">
+          <div class="scan-sweep"></div>
+        </div>
+        <div class="analysis-status mono" id="analysisStatus">Initializing…</div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <ul class="checklist" id="checklist"></ul>
+        <div class="text-center" style="margin-top:30px;">
+          <button class="btn btn-primary" id="goToResult" disabled>View result →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>NeuroScan</h5>
+          <p class="small" style="max-width:34ch;">A concept interface for AI-assisted MRI review, built as a design &amp; front-end demonstration. Not a medical device.</p>
+        </div>
+        <div>
+          <h5>Workflow</h5>
+          <ul>
+            <li><a href="patient.html">Patient Info</a></li>
+            <li><a href="upload.html">Upload MRI</a></li>
+            <li><a href="analysis.html">AI Analysis</a></li>
+            <li><a href="history.html">Previous Reports</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Project</h5>
+          <ul>
+            <li><a href="about.html">About the model</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Disclosure</h5>
+          <ul>
+            <li>No real patient data is collected</li>
+            <li>No clinical model runs in this demo</li>
+            <li>All data stays in your browser</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> NeuroScan Demo Project. For educational &amp; portfolio use only.</span>
+        <span class="mono">NOT FOR CLINICAL USE</span>
+      </div>
+    </div>
+  </footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

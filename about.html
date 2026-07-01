@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About the AI · NeuroScan Demo</title>
+<meta name="description" content="What NeuroScan is, what it isn't, and why the demo works the way it does.">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+
+</head>
+<body>
+
+  <div class="demo-banner">
+    <strong>DEMO / PROTOTYPE</strong> — NeuroScan is a fictional UI concept for a portfolio project. It runs no real imaging model and produces no real medical diagnoses.
+  </div>
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <img src="icons/logo-mark.svg" alt="" width="26" height="26">
+        <span>NeuroScan<small>NEURO-ONCOLOGY IMAGING · DEMO</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="">Home</a></li>
+<li><a href="patient.html" class="">Patient Info</a></li>
+<li><a href="upload.html" class="">Upload MRI</a></li>
+<li><a href="analysis.html" class="">AI Analysis</a></li>
+<li><a href="result.html" class="">Result</a></li>
+<li><a href="history.html" class="">History</a></li>
+<li><a href="about.html" class="active">About AI</a></li>
+<li><a href="contact.html" class="">Contact</a></li>
+
+        <li><a href="patient.html" class="nav-cta">Start Screening</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+
+
+
+  <header class="hero" style="padding:72px 0;">
+    <div class="container" style="grid-template-columns:1fr;">
+      <div style="max-width:70ch;">
+        <div class="eyebrow">About this project</div>
+        <h1 style="font-size:clamp(30px,4vw,44px);">There is no imaging model behind NeuroScan — and that's the point.</h1>
+        <p class="lede">This page explains exactly what the demo does, what it doesn't do, and why it's built this way.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="icon-badge"><img src="icons/icon-brain.svg" alt=""></div>
+          <h3>What it is</h3>
+          <p>A front-end concept exploring the interface and information design of an AI-assisted scan review tool: intake, upload, a staged progress sequence, a results view and a printable report.</p>
+        </div>
+        <div class="card">
+          <div class="icon-badge"><img src="icons/icon-alert.svg" alt=""></div>
+          <h3>What it isn't</h3>
+          <p>It is not a medical device, not validated on any dataset, and not connected to any trained model. The "AI Analysis" screen is a scripted animation, not a running computation over your image.</p>
+        </div>
+        <div class="card">
+          <div class="icon-badge"><img src="icons/icon-shield.svg" alt=""></div>
+          <h3>How results are made</h3>
+          <p>Result and report figures are derived from a simple hash of the uploaded file's name and size — enough to produce stable, repeatable numbers for demo purposes, nothing more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="on-dark">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Design intent</div>
+        <h2>Why build a fake diagnostic tool at all?</h2>
+        <p>Clinical software has a distinct visual language — dense data, careful hierarchy, restrained color used only where it means something. Recreating that language, honestly labelled as a demo, is a useful design exercise without any of the real-world risk of an unvalidated tool making health claims.</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card card-dark">
+          <h3>Every screen discloses itself</h3>
+          <p>A banner runs across the top of every page in this project. The result and report screens repeat the disclosure in their own words, right next to the numbers they're describing.</p>
+        </div>
+        <div class="card card-dark">
+          <h3>Data stays local</h3>
+          <p>Patient details and uploaded images are stored in your browser's local storage only. Nothing is transmitted to a server, logged, or shared — clearing your browsing data clears the demo entirely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="on-paper2">
+    <div class="container text-center">
+      <h2>Have a real concern about a scan or symptom?</h2>
+      <p style="max-width:56ch; margin:0 auto 10px;">Please speak with a licensed physician or radiologist. No website — this one included — should be used to interpret medical imaging or delay a real evaluation.</p>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>NeuroScan</h5>
+          <p class="small" style="max-width:34ch;">A concept interface for AI-assisted MRI review, built as a design &amp; front-end demonstration. Not a medical device.</p>
+        </div>
+        <div>
+          <h5>Workflow</h5>
+          <ul>
+            <li><a href="patient.html">Patient Info</a></li>
+            <li><a href="upload.html">Upload MRI</a></li>
+            <li><a href="analysis.html">AI Analysis</a></li>
+            <li><a href="history.html">Previous Reports</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Project</h5>
+          <ul>
+            <li><a href="about.html">About the model</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Disclosure</h5>
+          <ul>
+            <li>No real patient data is collected</li>
+            <li>No clinical model runs in this demo</li>
+            <li>All data stays in your browser</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> NeuroScan Demo Project. For educational &amp; portfolio use only.</span>
+        <span class="mono">NOT FOR CLINICAL USE</span>
+      </div>
+    </div>
+  </footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

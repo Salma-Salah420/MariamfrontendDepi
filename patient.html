@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Information · NeuroScan Demo</title>
+<meta name="description" content="Enter demo patient details before starting a simulated MRI screening pass.">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var form = document.getElementById("patientForm");
+  var idField = document.getElementById("patientId");
+  var existing = (window.NS && NS.getSession().patient) || null;
+  if (existing) {
+    for (var key in existing) {
+      var el = document.getElementById(key);
+      if (el) el.value = existing[key];
+    }
+  }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    var data = {
+      fullName: document.getElementById("fullName").value.trim(),
+      patientId: idField.value.trim() || NS.genId("PT"),
+      age: document.getElementById("age").value,
+      sex: document.getElementById("sex").value,
+      scanType: document.getElementById("scanType").value,
+      referrer: document.getElementById("referrer").value.trim(),
+      symptoms: document.getElementById("symptoms").value.trim()
+    };
+    NS.setSession({ patient: data });
+    window.location.href = "upload.html";
+  });
+});
+</script>
+
+</head>
+<body>
+
+  <div class="demo-banner">
+    <strong>DEMO / PROTOTYPE</strong> — NeuroScan is a fictional UI concept for a portfolio project. It runs no real imaging model and produces no real medical diagnoses.
+  </div>
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <img src="icons/logo-mark.svg" alt="" width="26" height="26">
+        <span>NeuroScan<small>NEURO-ONCOLOGY IMAGING · DEMO</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="">Home</a></li>
+<li><a href="patient.html" class="active">Patient Info</a></li>
+<li><a href="upload.html" class="">Upload MRI</a></li>
+<li><a href="analysis.html" class="">AI Analysis</a></li>
+<li><a href="result.html" class="">Result</a></li>
+<li><a href="history.html" class="">History</a></li>
+<li><a href="about.html" class="">About AI</a></li>
+<li><a href="contact.html" class="">Contact</a></li>
+
+        <li><a href="patient.html" class="nav-cta">Start Screening</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+
+
+  <div class="stepper">
+    <ol><li class="current"><span class="n">1</span><a href="patient.html" style="color:inherit">Patient Info</a><span class="sep">›</span></li>
+<li class=""><span class="n">2</span><a href="upload.html" style="color:inherit">Upload MRI</a><span class="sep">›</span></li>
+<li class=""><span class="n">3</span><a href="analysis.html" style="color:inherit">AI Analysis</a><span class="sep">›</span></li>
+<li class=""><span class="n">4</span><a href="result.html" style="color:inherit">Result</a><span class="sep">›</span></li>
+<li class=""><span class="n">5</span><a href="report.html" style="color:inherit">Report</a></li>
+</ol>
+  </div>
+
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Step 1 of 5</div>
+        <h2>Patient information</h2>
+        <p>These details travel with the demo case through upload, analysis and the final report. Nothing here is sent anywhere — it's saved only in this browser.</p>
+      </div>
+
+      <form id="patientForm" class="card" style="max-width:760px;" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label class="required" for="fullName">Full name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="e.g. Jordan Ellis" required>
+          </div>
+          <div class="field">
+            <label for="patientId">Patient ID</label>
+            <input type="text" id="patientId" name="patientId" placeholder="auto-generated if left blank">
+          </div>
+          <div class="field">
+            <label class="required" for="age">Age</label>
+            <input type="number" id="age" name="age" min="0" max="120" placeholder="e.g. 47" required>
+          </div>
+          <div class="field">
+            <label class="required" for="sex">Sex</label>
+            <select id="sex" name="sex" required>
+              <option value="">Select…</option>
+              <option>Female</option>
+              <option>Male</option>
+              <option>Other</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="scanType">Scan type</label>
+            <select id="scanType" name="scanType">
+              <option>MRI — T1-weighted</option>
+              <option>MRI — T2-weighted</option>
+              <option>MRI — FLAIR</option>
+              <option>MRI — Contrast-enhanced</option>
+              <option>MRI — Diffusion-weighted</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="referrer">Referring physician</label>
+            <input type="text" id="referrer" name="referrer" placeholder="optional, e.g. Dr. A. Kapoor">
+          </div>
+          <div class="field full">
+            <label for="symptoms">Reported symptoms / notes</label>
+            <textarea id="symptoms" name="symptoms" placeholder="Optional context for this demo case…"></textarea>
+            <span class="hint">Used only to populate the report screen — not analyzed by anything.</span>
+          </div>
+        </div>
+        <div class="flex gap-8" style="justify-content:flex-end;">
+          <button type="reset" class="btn btn-outline">Clear form</button>
+          <button type="submit" class="btn btn-primary">Continue to upload →</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>NeuroScan</h5>
+          <p class="small" style="max-width:34ch;">A concept interface for AI-assisted MRI review, built as a design &amp; front-end demonstration. Not a medical device.</p>
+        </div>
+        <div>
+          <h5>Workflow</h5>
+          <ul>
+            <li><a href="patient.html">Patient Info</a></li>
+            <li><a href="upload.html">Upload MRI</a></li>
+            <li><a href="analysis.html">AI Analysis</a></li>
+            <li><a href="history.html">Previous Reports</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Project</h5>
+          <ul>
+            <li><a href="about.html">About the model</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Disclosure</h5>
+          <ul>
+            <li>No real patient data is collected</li>
+            <li>No clinical model runs in this demo</li>
+            <li>All data stays in your browser</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> NeuroScan Demo Project. For educational &amp; portfolio use only.</span>
+        <span class="mono">NOT FOR CLINICAL USE</span>
+      </div>
+    </div>
+  </footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

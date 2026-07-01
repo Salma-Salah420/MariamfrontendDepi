@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact · NeuroScan Demo</title>
+<meta name="description" content="Contact page for the NeuroScan front-end demo project.">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var form = document.getElementById("contactForm");
+  var note = document.getElementById("contactNote");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    note.style.display = "block";
+    form.reset();
+  });
+});
+</script>
+
+</head>
+<body>
+
+  <div class="demo-banner">
+    <strong>DEMO / PROTOTYPE</strong> — NeuroScan is a fictional UI concept for a portfolio project. It runs no real imaging model and produces no real medical diagnoses.
+  </div>
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <img src="icons/logo-mark.svg" alt="" width="26" height="26">
+        <span>NeuroScan<small>NEURO-ONCOLOGY IMAGING · DEMO</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="">Home</a></li>
+<li><a href="patient.html" class="">Patient Info</a></li>
+<li><a href="upload.html" class="">Upload MRI</a></li>
+<li><a href="analysis.html" class="">AI Analysis</a></li>
+<li><a href="result.html" class="">Result</a></li>
+<li><a href="history.html" class="">History</a></li>
+<li><a href="about.html" class="">About AI</a></li>
+<li><a href="contact.html" class="active">Contact</a></li>
+
+        <li><a href="patient.html" class="nav-cta">Start Screening</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+
+
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:flex-start; gap:56px;">
+        <div>
+          <div class="eyebrow">Get in touch</div>
+          <h2>Questions about this project</h2>
+          <p>This is a static front-end demo, so the form below doesn't send anywhere yet — wire it up to your own backend or a form service if you fork this project.</p>
+
+          <div class="card" style="margin-top:30px;">
+            <div class="icon-badge"><img src="icons/icon-mail.svg" alt=""></div>
+            <h3>Project contact</h3>
+            <p>hello@neuroscan-demo.example</p>
+          </div>
+          <div class="card" style="margin-top:16px;">
+            <div class="icon-badge"><img src="icons/icon-pin.svg" alt=""></div>
+            <h3>Portfolio note</h3>
+            <p>Built as a design &amp; front-end demonstration. Not affiliated with any hospital, clinic, or medical device manufacturer.</p>
+          </div>
+        </div>
+
+        <form class="card" id="contactForm" novalidate>
+          <div class="field">
+            <label class="required" for="cName">Name</label>
+            <input type="text" id="cName" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label class="required" for="cEmail">Email</label>
+            <input type="email" id="cEmail" required placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="cSubject">Subject</label>
+            <select id="cSubject">
+              <option>General question</option>
+              <option>Feedback on the demo</option>
+              <option>Report an issue</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="required" for="cMessage">Message</label>
+            <textarea id="cMessage" required placeholder="What's on your mind?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send message</button>
+          <p id="contactNote" class="small" style="margin-top:12px; display:none;">This demo form doesn't actually send messages — hook it up to a backend to make it live.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>NeuroScan</h5>
+          <p class="small" style="max-width:34ch;">A concept interface for AI-assisted MRI review, built as a design &amp; front-end demonstration. Not a medical device.</p>
+        </div>
+        <div>
+          <h5>Workflow</h5>
+          <ul>
+            <li><a href="patient.html">Patient Info</a></li>
+            <li><a href="upload.html">Upload MRI</a></li>
+            <li><a href="analysis.html">AI Analysis</a></li>
+            <li><a href="history.html">Previous Reports</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Project</h5>
+          <ul>
+            <li><a href="about.html">About the model</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Disclosure</h5>
+          <ul>
+            <li>No real patient data is collected</li>
+            <li>No clinical model runs in this demo</li>
+            <li>All data stays in your browser</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> NeuroScan Demo Project. For educational &amp; portfolio use only.</span>
+        <span class="mono">NOT FOR CLINICAL USE</span>
+      </div>
+    </div>
+  </footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

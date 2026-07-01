@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Previous Reports · NeuroScan Demo</title>
+<meta name="description" content="Locally saved history of completed NeuroScan demo screening passes.">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var table = document.getElementById("historyTable");
+  var body = document.getElementById("historyBody");
+  var empty = document.getElementById("emptyState");
+  var clearBtn = document.getElementById("clearHistoryBtn");
+
+  function render() {
+    var list = NS.getHistory();
+    body.innerHTML = "";
+    if (!list.length) {
+      table.style.display = "none";
+      empty.style.display = "block";
+      return;
+    }
+    table.style.display = "table";
+    empty.style.display = "none";
+    list.forEach(function (item) {
+      var tr = document.createElement("tr");
+      var tag = item.category === "elevated" ? "watch" : "ok";
+      var tagLabel = item.category === "elevated" ? "review" : "nominal";
+      tr.innerHTML =
+        '<td><img src="' + item.thumb + '" alt="" style="width:44px;height:44px;object-fit:cover;border-radius:3px;border:1px solid var(--line-light);"></td>' +
+        '<td>' + item.patientName + '<div class="mono small" style="color:var(--slate-2);">' + item.patientId + '</div></td>' +
+        '<td>' + item.region + '</td>' +
+        '<td><span class="tag ' + tag + '">' + item.score + ' / 100 · ' + tagLabel + '</span></td>' +
+        '<td class="mono small">' + NS.fmtDate(item.date) + '</td>' +
+        '<td class="mono small">' + item.id + '</td>';
+      body.appendChild(tr);
+    });
+  }
+
+  clearBtn.addEventListener("click", function () {
+    if (confirm("Clear all locally saved demo reports?")) {
+      NS.clearHistory();
+      render();
+    }
+  });
+
+  render();
+});
+</script>
+
+</head>
+<body>
+
+  <div class="demo-banner">
+    <strong>DEMO / PROTOTYPE</strong> — NeuroScan is a fictional UI concept for a portfolio project. It runs no real imaging model and produces no real medical diagnoses.
+  </div>
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <img src="icons/logo-mark.svg" alt="" width="26" height="26">
+        <span>NeuroScan<small>NEURO-ONCOLOGY IMAGING · DEMO</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="">Home</a></li>
+<li><a href="patient.html" class="">Patient Info</a></li>
+<li><a href="upload.html" class="">Upload MRI</a></li>
+<li><a href="analysis.html" class="">AI Analysis</a></li>
+<li><a href="result.html" class="">Result</a></li>
+<li><a href="history.html" class="active">History</a></li>
+<li><a href="about.html" class="">About AI</a></li>
+<li><a href="contact.html" class="">Contact</a></li>
+
+        <li><a href="patient.html" class="nav-cta">Start Screening</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+
+
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px; max-width:none;">
+        <div>
+          <div class="eyebrow">Local session log</div>
+          <h2>Previous reports</h2>
+          <p>Every completed demo pass in this browser, newest first. This list lives only in local storage and clears if you clear browsing data.</p>
+        </div>
+        <button class="btn btn-outline btn-sm" id="clearHistoryBtn">Clear history</button>
+      </div>
+
+      <div id="historyWrap">
+        <table class="history-table" id="historyTable" style="display:none;">
+          <thead>
+            <tr>
+              <th>Scan</th>
+              <th>Patient</th>
+              <th>Region</th>
+              <th>Score</th>
+              <th>Date</th>
+              <th>Report</th>
+            </tr>
+          </thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+
+        <div class="empty-state" id="emptyState">
+          <img src="icons/icon-history.svg" alt="">
+          <h3>No reports yet</h3>
+          <p>Run through the workflow to generate your first demo report.</p>
+          <a href="patient.html" class="btn btn-primary" style="margin-top:16px;">Start a screening pass →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>NeuroScan</h5>
+          <p class="small" style="max-width:34ch;">A concept interface for AI-assisted MRI review, built as a design &amp; front-end demonstration. Not a medical device.</p>
+        </div>
+        <div>
+          <h5>Workflow</h5>
+          <ul>
+            <li><a href="patient.html">Patient Info</a></li>
+            <li><a href="upload.html">Upload MRI</a></li>
+            <li><a href="analysis.html">AI Analysis</a></li>
+            <li><a href="history.html">Previous Reports</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Project</h5>
+          <ul>
+            <li><a href="about.html">About the model</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Disclosure</h5>
+          <ul>
+            <li>No real patient data is collected</li>
+            <li>No clinical model runs in this demo</li>
+            <li>All data stays in your browser</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> NeuroScan Demo Project. For educational &amp; portfolio use only.</span>
+        <span class="mono">NOT FOR CLINICAL USE</span>
+      </div>
+    </div>
+  </footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

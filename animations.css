@@ -1,0 +1,74 @@
+/* ============================================================
+   NEUROSCAN — Animations
+   ============================================================ */
+
+@keyframes sweep{
+  0%   { top: 0%;   opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes pulseRing{
+  0%   { box-shadow: 0 0 0 0 rgba(23,195,178,.35); }
+  70%  { box-shadow: 0 0 0 14px rgba(23,195,178,0); }
+  100% { box-shadow: 0 0 0 0 rgba(23,195,178,0); }
+}
+.pulse{ animation: pulseRing 2.2s ease-out infinite; }
+
+@keyframes fadeUp{
+  from{ opacity:0; transform: translateY(14px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+.reveal{ animation: fadeUp .6s ease both; }
+.reveal-d1{ animation-delay: .08s; }
+.reveal-d2{ animation-delay: .16s; }
+.reveal-d3{ animation-delay: .24s; }
+
+@keyframes spin{
+  to{ transform: rotate(360deg); }
+}
+.spin{ animation: spin 5s linear infinite; transform-origin: center; }
+.spin-rev{ animation: spin 7s linear infinite reverse; transform-origin: center; }
+
+@keyframes blink{
+  0%,100%{ opacity:1; } 50%{ opacity:.25; }
+}
+.blink{ animation: blink 1.4s ease-in-out infinite; }
+
+@keyframes scanline-move{
+  from{ background-position: 0 0; }
+  to{ background-position: 0 28px; }
+}
+.scan-grid-bg{
+  background-image: repeating-linear-gradient(0deg, rgba(23,195,178,.06) 0px, rgba(23,195,178,.06) 1px, transparent 1px, transparent 28px);
+  animation: scanline-move 2.6s linear infinite;
+}
+
+@keyframes ticker{
+  0%{ opacity: .3; } 50%{ opacity: 1; } 100%{ opacity: .3; }
+}
+.ticker{ animation: ticker 1.8s ease-in-out infinite; }
+
+@keyframes ringProgress{
+  from{ stroke-dashoffset: 471; }
+}
+
+/* Dropzone drag feedback */
+.dropzone.drag .dz-title{ color: var(--teal); }
+
+/* Page load stagger for cards */
+.grid > .card{ animation: fadeUp .5s ease both; }
+.grid > .card:nth-child(1){ animation-delay: .02s; }
+.grid > .card:nth-child(2){ animation-delay: .09s; }
+.grid > .card:nth-child(3){ animation-delay: .16s; }
+.grid > .card:nth-child(4){ animation-delay: .23s; }
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
